@@ -2,10 +2,9 @@
   <div id="app">
     <div class="container">      
       <div id="nav">
-        <router-link to="/"> List tasks </router-link>
-        <router-link to="/aboult"> Create tasks </router-link>
-        <router-link to="/aboult"> Update task </router-link>
-        <router-link to="/aboult"> Create author </router-link>
+        <router-link to="/list"> List tasks </router-link>
+        <router-link to="/create"> Create tasks </router-link>
+        <router-link to="/author"> Create author </router-link>
       </div>
       <router-view/>
     </div>
