@@ -8,9 +8,19 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/list',
       name: 'list',
       component: () => import('./views/listTask.vue'),
+    },
+    {
+      path: '/create',
+      name: 'create',
+      component: () => import('./views/createTask.vue'),
+    },
+    {
+      path: '/author',
+      name: 'author',
+      component: () => import('./views/createAuthor.vue'),
     },
   ],
 });

@@ -14,8 +14,10 @@
             <div v-else>
               <task
                 v-for="item in items"
-                :key="item._id"              
+                :key="item._id"
+                :id="item.id"
                 :description="item.description"
+                :active="item.active"
                 :authorName="item.authorName"
                 :authorEmail="item.authorEmail"
                 :authorActivo="item.authorActivo"
@@ -90,7 +92,7 @@ export default {
       this.getTasks();
     },
     getTasks() {
-      let url = 'http://localhost:3000/api/tasks?limit=1&page='+this.page;
+      let url = 'http://localhost:3000/api/tasks?limit=5&page='+this.page;
       if (this.page == 0) {
         url = 'http://localhost:3000/api/tasks';
       }
@@ -111,7 +113,9 @@ export default {
             const { nombre = 'Anonimo', apellido = '', activo = 0, email = '' } = author;
 
             return {
+              id: item._id,
               description: item.description,
+              active: item.active == 0 ? 'Inactive' : 'Active',
               createdAt: item.createdAt,
               updatedAt: item.updatedAt,
               authorName: `${nombre} ${apellido}`,
@@ -123,7 +127,7 @@ export default {
           this.items = tasks;
           this.loading = false;
         });
-    }
+    },
   },
 };
 </script>
